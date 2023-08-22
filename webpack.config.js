@@ -20,7 +20,8 @@ module.exports = (env) => {
     mode: 'production',
     devtool: 'source-map',
     entry: {
-      'kityminder.editor': './index.js',
+      'kityminder-editor': './index.js',
+      'kityminder-core': './core.js',
     },
     output: {
       path: relPath('dist'),
@@ -52,8 +53,8 @@ module.exports = (env) => {
         },
         {
           test: /ui-codemirror\.js$/,
-          use: ['ng-annotate-loader']
-        }
+          use: ['ng-annotate-loader'],
+        },
       ],
     },
     resolve: {
@@ -78,16 +79,6 @@ module.exports = (env) => {
           extractComments: false,
         }),
       ],
-      splitChunks: {
-        cacheGroups: {
-          core: {
-            test: /[\\/]node_modules[\\/](kityminder-core|kity)[\\/]/,
-            name: 'kityminder.core',
-            priority: -5,
-            chunks: 'all',
-          },
-        },
-      },
     },
     plugins: [
       new WebpackShellPluginNext({
@@ -100,7 +91,7 @@ module.exports = (env) => {
       new MiniCssExtractPlugin(),
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
-        openAnalyzer: false,
+        openAnalyzer: true,
       }),
       new DefinePlugin({
         'process.env.NODE_DEBUG': JSON.stringify(process.env.NODE_ENV === 'development'),

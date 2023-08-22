@@ -1,6 +1,6 @@
 require('jquery');
 require('bootstrap');
-require('angular');
+const angular = require('angular');
 require('angular-bootstrap');
 require('codemirror');
 require('codemirror/mode/xml/xml.js');
@@ -14,9 +14,10 @@ require('angular-ui-codemirror');
 require('marked');
 require('hotbox');
 require('json-diff');
-require('kity');
-require('kityminder-core');
 require('color-picker');
-require('./src/expose-editor');
+const { kity, kityminder } = require('./core');
+kityminder.Editor = require('./src/editor');
 require('./ui/bundle.js');
 require('./less/index.less');
+
+module.exports = { angular, kity, kityminder };

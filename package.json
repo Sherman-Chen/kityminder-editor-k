@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/fex-team/kityminder-editor",
   "devDependencies": {
+    "@ltspkg/types.kityminder-core": "^1.4.0-beta.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "cz-conventional-changelog": "^1.1.5",
