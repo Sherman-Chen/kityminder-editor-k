@@ -20,8 +20,8 @@ module.exports = (env) => {
     mode: 'production',
     devtool: 'source-map',
     entry: {
-      'kityminder-editor': './index.js',
-      'kityminder-core': './core.js',
+      'kityminder-editor': './editor.js',
+      'kityminder-viewer': './viewer.js',
     },
     output: {
       path: relPath('dist'),
@@ -31,11 +31,27 @@ module.exports = (env) => {
       rules: [
         {
           test: /\.css$/i,
-          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: { sourceMap: false },
+            },
+          ],
         },
         {
           test: /\.less$/i,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: { sourceMap: false },
+            },
+            {
+              loader: 'less-loader',
+              options: { sourceMap: false },
+            },
+          ],
         },
         {
           test: /\.(png|jpg|gif)$/,
@@ -79,6 +95,18 @@ module.exports = (env) => {
           extractComments: false,
         }),
       ],
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          default: false,
+          defaultVendors: false,
+          core: {
+            name: 'kityminder-core',
+            priority: 1,
+            test: /[\\/]node_modules[\\/](kity|kityminder-core)[\\/]/,
+          },
+        },
+      },
     },
     plugins: [
       new WebpackShellPluginNext({
@@ -105,14 +133,13 @@ module.exports = (env) => {
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
-        marked: 'marked',
         'window.CodeMirror': 'codemirror',
       }),
       new CopyPlugin({
         patterns: [
           {
             from: relPath('node_modules/kityminder-core/dist/kityminder.core.css'),
-            to: '.',
+            to: 'kityminder-core.css',
           },
         ],
       }),
