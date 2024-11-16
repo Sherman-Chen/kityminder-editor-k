@@ -54,7 +54,7 @@ angular.module('kityminderEditor')
 
 					$previewer[0].scrollTop = 0;
 
-					var html = marked(note);
+					var html = marked.parse(note);
 					if (keyword) {
 						html = html.replace(new RegExp('(' + keyword + ')', 'ig'), '<span class="highlight">$1</span>');
 					}
