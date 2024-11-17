@@ -1,4 +1,7 @@
 angular.module('kityminderEditor')
+    .config(['$compileProvider', function($compileProvider) {
+        $compileProvider.imgSrcSanitizationWhitelist(/^\s*((https?|app|ftp|file|blob):|data:image\/)/);
+    }])
     .controller('image.ctrl', ['$http', '$scope', '$modalInstance', 'image', 'server', function($http, $scope, $modalInstance, image, server) {
 
         $scope.data = {

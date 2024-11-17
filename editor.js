@@ -1,0 +1,23 @@
+require('jquery');
+require('bootstrap');
+const angular = require('angular');
+require('angular-bootstrap');
+require('codemirror');
+require('codemirror/mode/xml/xml.js');
+require('codemirror/mode/javascript/javascript.js');
+require('codemirror/mode/css/css.js');
+require('codemirror/mode/htmlmixed/htmlmixed.js');
+require('codemirror/mode/markdown/markdown.js');
+require('codemirror/addon/mode/overlay.js');
+require('codemirror/mode/gfm/gfm.js');
+require('angular-ui-codemirror');
+window.marked = require('marked');
+require('hotbox');
+require('json-diff');
+require('color-picker');
+const { kity, kityminder } = require('./viewer');
+kityminder.Editor = require('./src/editor');
+require('./ui/bundle.js');
+require('./less/index.less');
+
+module.exports = { angular, kity, kityminder };

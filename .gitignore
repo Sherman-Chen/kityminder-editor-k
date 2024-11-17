@@ -3,6 +3,8 @@
 bower_components/
 node_modules/
 dist/
+build/
 ui/templates.js
+ui/bundle.js
 .tmp/
 upload/
