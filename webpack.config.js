@@ -17,6 +17,13 @@ const libPath = (...paths) => relPath('lib', ...paths);
 module.exports = (env) => {
   /** @type {import('webpack').Configuration} */
   const config = {
+    devServer: {
+      // contentBase: relPath('dist'),
+      compress: true,
+      port: 9000,
+      hot: true,
+      open: true,
+    },
     mode: 'production',
     devtool: 'source-map',
     entry: {
@@ -26,6 +33,7 @@ module.exports = (env) => {
     output: {
       path: relPath('dist'),
       filename: '[name].js',
+      publicPath: '/'
     },
     module: {
       rules: [
@@ -83,6 +91,9 @@ module.exports = (env) => {
         os: require.resolve('os-browserify/browser'),
       },
     },
+    performance: {
+      hints: false,
+    },
     optimization: {
       minimize: true,
       minimizer: [
@@ -119,7 +130,7 @@ module.exports = (env) => {
       new MiniCssExtractPlugin(),
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
-        openAnalyzer: true,
+        openAnalyzer: false,
       }),
       new DefinePlugin({
         'process.env.NODE_DEBUG': JSON.stringify(process.env.NODE_ENV === 'development'),

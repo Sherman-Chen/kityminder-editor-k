@@ -6,8 +6,8 @@
 
 	<link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
 
-	<link rel="stylesheet" href="dist/kityminder-core.css">
-	<link rel="stylesheet" href="dist/kityminder-editor.css">
+	<link rel="stylesheet" href="/kityminder-core.css">
+	<link rel="stylesheet" href="/kityminder-editor.css">
 
     <style>
         html, body {
@@ -30,12 +30,11 @@
     </style>
 </head>
 <body ng-app="kityminderDemo" ng-controller="MainController">
-    <h1 class="editor-title">KityMinder Editor - Powered By FEX</h1>
     <kityminder-editor on-init="initEditor(editor, minder)"></kityminder-editor>
 </body>
 
-<script src="dist/kityminder-core.js"></script>
-<script src="dist/kityminder-editor.js"></script>
+<script src="/kityminder-core.js"></script>
+<script src="/kityminder-editor.js"></script>
 
 <script>
 	angular.module('kityminderDemo', ['kityminderEditor'])
