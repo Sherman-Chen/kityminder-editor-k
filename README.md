@@ -1,9 +1,11 @@
-KityMinder Editor
+KityMinder Editor K
 ==========
 
 ## 简介
 
 KityMinder Editor 是一款强大、简洁、体验优秀的脑图编辑工具，适合用于编辑树/图/网等结构的数据。
+
+KityMinder Editor K只是简单地做了一些升级，并没有多大的改动。
 
 编辑器由百度 [FEX](https://github.com/fex-team) 基于 [kityminder-core](https://github.com/fex-team/kityminder-core) 搭建，并且在[百度脑图](http://naotu.baidu.com)中使用。
 
@@ -11,8 +13,8 @@ KityMinder Editor 是一款强大、简洁、体验优秀的脑图编辑工具�
 
 ![KityMinder 联系](relations.png "KityMinder 联系")
 
-- [kityminder-core](https://github.com/fex-team/kityminder-core) 是 kityminder 的核心部分，基于百度 [FEX](https://github.com/fex-team) 开发的矢量图形库 [kity](https://github.com/fex-team/kity)。包含了脑图数据的可视化展现，简单编辑功能等所有底层支持。
-- [kityminder-editor](https://github.com/fex-team/kityminder-editor) 基于 kityminder-core 搭建，依赖于 AngularJS，包含 UI 和热盒 [hotbox](https://github.com/fex-team/hotbox) 等方便用户输入的功能，简单来说，就是一款编辑器。
+- [kityminder-core](https://github.com/Sherman-Chen/kityminder-core-k) 是 kityminder 的核心部分，基于百度 [FEX](https://github.com/fex-team) 开发的矢量图形库 [kity](https://github.com/fex-team/kity)。包含了脑图数据的可视化展现，简单编辑功能等所有底层支持。
+- [kityminder-editor](https://github.com/Sherman-Chen/kityminder-editor-k) 基于 kityminder-core 搭建，依赖于 AngularJS，包含 UI 和热盒 [hotbox](https://github.com/fex-team/hotbox) 等方便用户输入的功能，简单来说，就是一款编辑器。
 - [百度脑图](http://naotu.baidu.com) 基于 kityminder-editor，加入了第三方格式导入导出 (FreeMind, XMind, MindManager) 、文件储存、用户认证、文件分享、历史版本等业务逻辑。
 
 ## 功能
@@ -80,8 +82,4 @@ angular.module('kityminderDemo', ['kityminderEditor'])
 ## 联系我们
 问题和建议反馈：
 
-[Github issues](https://github.com/fex-team/kityminder-editor/issues)
-
-邮件组：kity@baidu.com
-
-QQ 讨论群：475962105
+[Github issues](https://github.com/Sherman-Chen/kityminder-editor-k/issues)

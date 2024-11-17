@@ -1,7 +1,7 @@
 {
-  "name": "kityminder-editor",
-  "version": "1.0.67",
-  "description": "A powerful mind map editor",
+  "name": "kityminder-editor-k",
+  "version": "0.0.1",
+  "description": "A maintained fork of the powerful mind map editor",
   "main": "kityminder.editor.js",
   "scripts": {
     "init": "npm i -g wr && npm install -g less && npm install -g bower && bower install && npm install",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fex-team/kityminder-editor"
+    "url": "https://github.com/Sherman-Chen/kityminder-editor-k"
   },
   "keywords": [
     "kityminder",
@@ -24,9 +24,9 @@
   "author": "fex <fex@baidu.com>",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/fex-team/kityminder-editor/issues"
+    "url": "https://github.com/Sherman-Chen/kityminder-editor-k/issues"
   },
-  "homepage": "https://github.com/fex-team/kityminder-editor",
+  "homepage": "https://github.com/Sherman-Chen/kityminder-editor-k",
   "devDependencies": {
     "cz-conventional-changelog": "^1.1.5",
     "grunt": "~0.4.1",
