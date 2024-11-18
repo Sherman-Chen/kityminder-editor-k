@@ -79,6 +79,62 @@ angular.module('kityminderDemo', ['kityminderEditor'])
 
 数据格式的具体信息，可参考 [kityminder-core-wiki 的中的说明](https://github.com/fex-team/kityminder-core/wiki)。
 
+## 添加ng18的组件
+
+先正常使用ng18的写法，然后还需要为这个组件降级为angularjs的组件，这样才能在angularjs的项目中使用。
+```
+declare const angular: angular.IAngularStatic;
+import { Component } from "@angular/core";
+import { downgradeComponent } from "@angular/upgrade/static";
+
+@Component({
+  selector: 'todo-list-item',
+  template: `
+    <li>(TODO) Read Angular Essentials Guide</li>
+  `,
+})
+export class TodoListItem {
+  /* Component behavior is defined in here */
+  ngOnInit() {
+    console.log('Component has been initialized');
+  }
+}
+
+
+angular.module('mytest', [])
+  .directive(
+    'todoListItem',
+    downgradeComponent({component: TodoListItem}) as angular.IDirectiveFactory
+  );
+```
+
+然后在app.module.ts中，添加对应的module依赖即可：
+```
+@NgModule({
+  imports: [
+    BrowserModule,
+    UpgradeModule,
+  ],
+  declarations: [
+    TodoListItem,
+  ],
+})
+```
+
+```
+
+之后在kityminder.app.js中，添加对应的module依赖即可：
+
+```
+angular.module('kityminderEditor', [
+  'ui.bootstrap',
+	'ui.codemirror',
+	'ui.colorpicker',
+    // 添加这个
+	'mytest'
+])
+```
+
 ## 联系我们
 问题和建议反馈：
 

@@ -18,6 +18,7 @@ require('color-picker');
 const { kity, kityminder } = require('./viewer');
 kityminder.Editor = require('./src/editor');
 require('./ui/bundle.js');
+require('./ui/main.ts');
 require('./less/index.less');
 
 module.exports = { angular, kity, kityminder };

@@ -29,7 +29,7 @@
         }
     </style>
 </head>
-<body ng-app="kityminderDemo" ng-controller="MainController">
+<body>
     <kityminder-editor on-init="initEditor(editor, minder)"></kityminder-editor>
 </body>
 
@@ -37,14 +37,15 @@
 <script src="/kityminder-editor.js"></script>
 
 <script>
-	angular.module('kityminderDemo', ['kityminderEditor'])
-			.controller('MainController', function($scope) {
-				$scope.initEditor = function(editor, minder) {
-					window.editor = editor;
-					window.minder = minder;
-				};
-			});
+	// angular.module('kityminderDemo', ['kityminderEditor'])
+	// 		.controller('MainController', function($scope) {
+	// 			$scope.initEditor = function(editor, minder) {
+	// 				window.editor = editor;
+	// 				window.minder = minder;
+	// 			};
+	// 		});
 
 </script>
+
 
 </html>

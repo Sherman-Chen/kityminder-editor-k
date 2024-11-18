@@ -6,6 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
+const { execSync } = require('child_process');
 
 /**
  * @param  {...string} paths
@@ -23,6 +24,9 @@ module.exports = (env) => {
       port: 9000,
       hot: true,
       open: true,
+      onBeforeSetupMiddleware() {
+        execSync('npx grunt build', { stdio: 'inherit' });
+      },
     },
     mode: 'production',
     devtool: 'source-map',
@@ -37,6 +41,11 @@ module.exports = (env) => {
     },
     module: {
       rules: [
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
+        },
         {
           test: /\.css$/i,
           use: [
@@ -90,6 +99,7 @@ module.exports = (env) => {
       fallback: {
         os: require.resolve('os-browserify/browser'),
       },
+      extensions: ['.tsx', '.ts', '.js']
     },
     performance: {
       hints: false,
